@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public abstract class ClaseAbstractaPrincipal {
 
-    protected int transacciones, retiro, deposito; // variables GLOBALES
+    protected int transaccion, retiro, deposito; // variables GLOBALES
     private static int saldo; //variable estatica PRIVADA para que no se pueda modificar el saldo del usuario. Hay que crear getters y setters para ello
     Scanner scanner = new Scanner(System.in);
 
