@@ -28,18 +28,44 @@ public abstract class ClaseAbstractaPrincipal {
 
                 }
             } while (flag == 0);
+/* alternativa ifs anidados
+            if (entradaUsuario == 1) {
+                ClaseAbstractaPrincipal metodoIntermedio = new ConsultaSaldo();
+                metodoIntermedio.Transacciones(); // llamamos al metodo de la clase hija con polimorfismo ya que creamos instancia de la clase "padre" pero como clase hija
+            } else if (entradaUsuario == 2) {
+                ClaseAbstractaPrincipal metodoIntermedio = new RetiraSaldo();
+                metodoIntermedio.Transacciones();
+            } else if (entradaUsuario == 3) {
+                ClaseAbstractaPrincipal metodoIntermedio = new IngresaSaldo();
+                metodoIntermedio.Transacciones();
+            } else if (entradaUsuario == 4) {
+                System.out.println("----------------------");
+                System.out.println("Gracias, vuelva pronto");
+                System.out.println("----------------------");
+                flag = 2;
+            }
+            */
 
+// probé con switch de inicio pero al compilar salía del bucle while y pensé que era por los break,
+// TODO mejorar (Update:) resulta que el problema era que habia puesto while bandera = 2, y no bandera != 2.
+// Guardo los if igualmente y me quedo con el switch
             switch (entradaUsuario) {
                 case (1):
                     // consulta
+                    ClaseAbstractaPrincipal metodoIntermedio1 = new ConsultaSaldo();
+                    metodoIntermedio1.Transacciones(); // llamamos al metodo de la clase hija con polimorfismo ya que creamos instancia de la clase "padre" pero como clase hija
                     break;
 
                 case (2):
                     // retirada
+                    ClaseAbstractaPrincipal metodoIntermedio2 = new RetiraSaldo();
+                    metodoIntermedio2.Transacciones();
                     break;
 
                 case (3):
                     // ingreso
+                    ClaseAbstractaPrincipal metodoIntermedio3 = new IngresaSaldo();
+                    metodoIntermedio3.Transacciones();
                     break;
 
                 case (4): // User elige salir
@@ -52,7 +78,9 @@ public abstract class ClaseAbstractaPrincipal {
                 default: // no deberia llegar nunca
 
             }
-        } while (flag == 2);
+            
+ //*/
+        } while (flag != 2);
     }
 
     public void Retirada() { // metodo para solicitar retiro
